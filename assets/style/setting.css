@@ -1,0 +1,63 @@
+.fab {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--primary-button-color);
+    color: white;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    font-size: 24px;
+    z-index: 100;
+}
+
+.fab:hover {
+    background: var(--primary-color);
+}
+
+.options-menu {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    pointer-events: none;
+}
+
+.option-btn {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--secondary-button-color);
+    color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.show-options .option-btn {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.option-btn:hover {
+    background: var(--secondary-color);
+}
+
+.show-options .option-btn:nth-child(1) { transform: translate(50px, -95px); }
+.show-options .option-btn:nth-child(2) { transform: translate(-27px, -52px); }
+.show-options .option-btn:nth-child(3) { transform: translate(-72px, 32px); }

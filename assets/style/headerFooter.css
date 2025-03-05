@@ -1,0 +1,85 @@
+.header, .footer {
+    background: var(--secondary-color);
+    color: white;
+    text-align: center;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: 0.3s ease-in-out;
+}
+
+.footer {
+    bottom: 0;
+    justify-content: center;
+    font-size: 18px;
+    top: 94%;
+    box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.toggle-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    margin-right: auto;
+}
+
+.search-box {
+    flex: 1;
+    margin: 0 20px;
+}
+
+.search-box input {
+    width: 300px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    border: 1px solid white;
+    outline: none;
+    float: left;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.profile-menu {
+    position: absolute;
+    top: 56px;
+    right: 2px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    display: none;
+    flex-direction: column;
+    min-width: 200px;
+}
+
+.profile-menu.active {
+    display: flex;
+}
+
+.profile-menu .menu-item {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #ddd;
+    color: black;
+}
+
+.profile-menu .menu-item:last-child {
+    border-bottom: none;
+}
+
+.profile-menu .menu-item:hover {
+    background: #f0f0f0;
+}
