@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel Prism - Highlights the multifaceted nature of CSS.</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="./assets/style/style.css" rel="stylesheet">
+    <link href="./assets/style/sidebar.css" rel="stylesheet">
+    <link href="./assets/style/headerFooter.css" rel="stylesheet">
+    <link href="./assets/style/setting.css" rel="stylesheet">
+    <link href="./assets/style/person.css" rel="stylesheet">
+</head>
+<body>
+    <div class="sidebar" id="sidebar" hx-get="./assets/components/sidebar.html" hx-trigger="load"></div>
+    <div class="content">
+        <div class="header" id="header" hx-get="./assets/components/header.html" hx-trigger="load"></div>
+        <div style="flex: 1; padding: 20px;">Main Content</div>
+        <div class="footer" id="footer">&copy;&nbsp;<span id="year"></span>&nbsp;PIXEL PRISM</div>
+    </div>
+    <div id="setting" hx-get="./assets/components/setting.html" hx-trigger="load"></div>
+    <script src="https://unpkg.com/htmx.org@1.9.6"></script>
+    <script src="./assets/script/script.js"></script>
+</body>
+</html>

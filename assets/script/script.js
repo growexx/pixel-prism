@@ -1,5 +1,10 @@
 let darkMode = false;
 document.getElementById("year").textContent = new Date().getFullYear();
+setTimeout(stopMouthAnimation, 7000);
+
+function stopMouthAnimation() {
+    document.querySelector(".mouth").style.animation = "none";
+}
 
 function toggleSidebar() {
     document.getElementById('sidebar').classList.toggle('collapsed');
@@ -59,4 +64,52 @@ function toggleSubmenu(element) {
     if (submenu && submenu.classList.contains('submenu')) {
         submenu.style.display = submenu.style.display === 'flex' ? 'none' : 'flex';
     }
+}
+
+function toggleEyes() {
+    const passwordInput = document.getElementById("password").value;
+    const leftHand = document.getElementById("leftHand");
+    const rightHand = document.getElementById("rightHand");
+    const leftEye = document.getElementById("leftEye");
+    const rightEye = document.getElementById("rightEye");
+    const closedEyes = document.getElementById("closedEyes");
+
+    if (passwordInput.length > 0) {
+        closedEyes.style.opacity = "1";
+        leftHand.style.transform = "translateY(-36px) translateX(39px) rotate(22deg)";
+        rightHand.style.transform = "translateY(-36px) translateX(-39px) rotate(-22deg)";
+        leftEye.style.opacity = "0";
+        rightEye.style.opacity = "0";
+    } else {
+        closedEyes.style.opacity = "0";
+        leftHand.style.transform = "translateY(0) translateX(0) rotate(0)";
+        rightHand.style.transform = "translateY(0) translateX(0) rotate(0)";
+        leftEye.style.opacity = "1";
+        rightEye.style.opacity = "1";
+    }
+}
+
+function validateEmail() {
+    const emailInput = document.getElementById("email");
+    const email = emailInput.value;
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailPattern.test(email)) {
+        alert("Please enter a valid email address.");
+        emailInput.focus();
+        return false;
+    }
+    return true;
+}
+
+function validateForm(event) {
+    if (validateEmail()) {
+        window.location.href = "dashboard.html";
+    } else {
+        event.preventDefault();
+    }
+}
+
+function logout() {
+    window.location.href = "index.html";
 }

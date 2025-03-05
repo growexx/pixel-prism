@@ -5,20 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pixel Prism - Highlights the multifaceted nature of CSS.</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link href="./assets/style/style.css" rel="stylesheet">
-    <link href="./assets/style/sidebar.css" rel="stylesheet">
-    <link href="./assets/style/headerFooter.css" rel="stylesheet">
-    <link href="./assets/style/setting.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="./assets/style/login.css" rel="stylesheet">
 </head>
 <body>
-    <div class="sidebar" id="sidebar" hx-get="./assets/components/sidebar.html" hx-trigger="load"></div>
-    <div class="content">
-        <div class="header" id="header" hx-get="./assets/components/header.html" hx-trigger="load"></div>
-        <div style="flex: 1; padding: 20px;">Main Content</div>
-        <div class="footer" id="footer">&copy;&nbsp;<span id="year"></span>&nbsp;PIXEL PRISM</div>
+    <div class="floating-circles">
+        <div></div><div></div><div></div><div></div><div></div>
     </div>
-    <div id="setting" hx-get="./assets/components/setting.html" hx-trigger="load"></div>
+    <div class="logo-container">
+        <h1 class="company-name">PIXEL PRISM</h1>
+        <h3 class="company-name">Welcome to Our Platform</h3>
+    </div>
+    <div class="person">
+        <div class="head">
+            <div class="eye left" id="leftEye"></div>
+            <div class="eye right" id="rightEye"></div>
+            <div class="closed-eyes" id="closedEyes"></div>
+            <div class="mouth"></div>
+        </div>
+        <div class="body"></div>
+        <div class="hand left" id="leftHand"></div>
+        <div class="hand right" id="rightHand"></div>
+    </div>
+    <div class="login-wrapper">
+        <div class="login-container">
+            <h4>Login</h4>
+            <form hx-trigger="submit" onsubmit="validateForm(event)">
+                <div class="input-field">
+                    <input type="email" id="email" required>
+                    <label for="email">Email</label>
+                </div>
+                <div class="input-field">
+                    <input type="password" id="password" required oninput="toggleEyes()" autocomplete="off">
+                    <label for="password">Password</label>
+                </div>
+                <button type="submit" hx-redirect="/dashboard.html"  class="btn waves-effect waves-light">Login</button>
+            </form>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://unpkg.com/htmx.org@1.9.6"></script>
     <script src="./assets/script/script.js"></script>
 </body>
