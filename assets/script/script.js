@@ -115,8 +115,12 @@ function logout() {
 }
 
 window.onload = function() {
-    const div = document.getElementsByClassName('chat-container card');
-    if(div) {
+    if(!localStorage.getItem('defaultComponent')) {
+        localStorage.setItem('defaultComponent', 'chatVault');
+    }
+    setSelctedComponent();
+    const chatContainer = document.getElementsByClassName('chat-container card');
+    if(chatContainer) {
         addMessage('What can I help with?','received');
     }
 };

@@ -1,0 +1,260 @@
+<div class="welcome-msg">
+    <span class="typing-text">CSS 8-Point Grid Layout</span>
+</div>
+<div class="component-container">
+    <div>
+        <div class="heading">What is the 8-Point Grid Layout?</div>
+        <hr>
+        <div class="paragraph">
+            The <strong>8-point grid system</strong> is a design framework where the positioning, sizing, and spacing of all UI elements are based on increments of <strong>8 pixels</strong> (or points). This includes:
+            <li>Margins</li>
+            <li>Padding</li>
+            <li>Line heights</li>
+            <li>Widths and heights of elements</li>
+            <li>Gap between elements</li>
+        </div>
+        <div class="sub-heading">Why 8 Pixels?</div>
+        <div class="paragraph">
+            <li>8 is divisible by 2 and 4, making it easy to scale up or down.</li>
+            <li>Most screen resolutions (e.g., 1920px, 1280px) are divisible by 8, making alignment consistent across different screens.</li>
+            <li>Reduces alignment issues and visual inconsistencies.</li>
+        </div>
+    </div>
+    <div>
+        <div class="heading">Why Do We Need It?</div>
+        <hr>
+        <div class="sub-heading">1. Predictability</div>
+        <div class="paragraph">
+            <li>When you stick to a defined grid, the design becomes predictable.</li>
+            <li>Developers and designers know that every margin, padding, and size will follow a consistent pattern.</li>
+        </div>
+        <div class="sub-heading">2. Consistency Across Devices</div>
+        <div class="paragraph">
+            <li>The grid ensures that spacing, padding, and alignment are consistent, no matter the screen size.</li>
+            <li>Design looks clean and balanced across different platforms (mobile, tablet, desktop).</li>
+        </div>
+        <div class="sub-heading">3. Faster Development</div>
+        <div class="paragraph">
+            <li>Once the grid is established, developers can reuse the same spacing and sizing rules.</li>
+            <li>No need to "eyeball" the alignment — use fixed values like <code>8px, 16px, 24px...</code></li>
+        </div>
+        <div class="sub-heading">4. Scalable Design</div>
+        <div class="paragraph">
+            <li>If the app grows or more components are added, the consistent grid makes it easier to expand without breaking the design language.</li>
+        </div>
+        <div class="sub-heading">5. Improves Accessibility</div>
+        <div class="paragraph">
+            <li>Predictable spacing and alignment improve readability and usability.</li>
+            <li>Makes touch targets consistent, which helps with mobile and touchscreen interactions.</li>
+        </div>
+    </div>
+    <div>
+        <div class="heading">Example</div>
+        <hr>
+        <div class="sub-heading">Example: Basic Container and Card Example</div>
+        <div class="paragraph">
+            Here's a simple example using a container and a card that follows the 8-point grid:
+            <h4>HTML</h4>
+            <pre class="brush: html">
+                <div class="container">
+                    <div class="card">
+                      <h2 class="card-title">Title</h2>
+                      <p class="card-content">This is a description of the card content.</p>
+                      <button class="button">Click Me</button>
+                    </div>
+                </div>
+            </pre>
+            <h4>CSS</h4>
+            <pre class="brush: css">
+                /* Container and card follow 8px spacing increments */
+                .container {
+                    display: flex;
+                    gap: 16px; /* Multiple of 8 */
+                    padding: 24px; /* Multiple of 8 */
+                }
+
+                .card {
+                    width: 320px; /* Multiple of 8 */
+                    padding: 16px; /* Multiple of 8 */
+                    margin-bottom: 8px; /* Multiple of 8 */
+                    border-radius: 8px;
+                    background-color: #f9f9f9;
+                    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+                }
+
+                .card-title {
+                    font-size: 24px; /* Multiple of 8 */
+                    margin-bottom: 8px;
+                }
+
+                .card-content {
+                    font-size: 16px; /* Multiple of 8 */
+                    line-height: 24px; /* Multiple of 8 */
+                }
+
+                .button {
+                    padding: 8px 16px; /* Multiple of 8 */
+                    font-size: 16px; /* Multiple of 8 */
+                    border-radius: 8px;
+                    background-color: #007bff;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                }
+            </pre>
+        </div>
+        <div class="sub-heading">Why it Works:</div>
+        <div class="paragraph">
+            <li>All spacing, padding, and font sizes are multiples of 8 — making the design clean and aligned.</li>
+            <li>The card, text, and button sizes feel balanced and predictable.</li>
+        </div>
+        <div class="sub-heading">Example: Flexbox Grid Layout Example</div>
+        <div class="paragraph">
+            Let's build a flexible grid layout using Flexbox and 8-point spacing:
+            <h4>HTML</h4>
+            <pre class="brush: html">
+                <div class="grid">
+                    <div class="grid-item">Item 1</div>
+                    <div class="grid-item">Item 2</div>
+                    <div class="grid-item">Item 3</div>
+                </div>
+            </pre>
+            <h4>CSS</h4>
+            <pre class="brush: css">
+                .grid {
+                    display: flex;
+                    gap: 16px; /* 16px = 2 * 8px */
+                    padding: 24px; /* 24px = 3 * 8px */
+                }
+                .grid-item {
+                    width: 160px; /* 160px = 20 * 8px */
+                    height: 80px; /* 80px = 10 * 8px */
+                    padding: 16px;
+                    background-color: #e0e0e0;
+                    border-radius: 8px;
+                }
+            </pre>
+        </div>
+        <div class="sub-heading">Why it Works:</div>
+        <div class="paragraph">
+            <li>Elements align naturally because they follow a multiple of 8px.</li>
+            <li>Flexbox handles the alignment and the grid spacing keeps it uniform.</li>
+        </div>
+        <div class="sub-heading">Example: Fine-tuning with a 4px Subgrid</div>
+        <div class="paragraph">
+            Sometimes, you need more precision (e.g., for small icons or tight spaces). In such cases, use a <strong>4px subgrid</strong> for finer control.
+            <h4>CSS</h4>
+            <pre class="brush: css">
+                .icon {
+                    width: 16px; /* Multiple of 8 */
+                    height: 16px;
+                    margin: 4px; /* Half of 8 */
+                }
+            </pre>
+        </div>
+        <div class="sub-heading">Why it Works:</div>
+        <div class="paragraph">
+            <li>Still follows the 8-point grid but allows more granular alignment using a 4px step.</li>
+        </div>
+    </div>
+    <div>
+        <div class="heading">How to Follow the 8-Point Grid Rule</div>
+        <hr>
+        <div class="sub-heading">1. Spacing Units</div>
+        <div class="paragraph">
+            <li>Define a set of values in increments of 8px:</li>
+            <li>0, 8, 16, 24, 32, 40, 48, 56, 64...</li>
+        </div>
+        <div class="sub-heading">2. Font Sizes</div>
+        <div class="paragraph">
+            <li>Use sizes based on the grid:</li>
+            <li>8px, 16px, 24px, 32px, 40px...</li>
+        </div>
+        <div class="sub-heading">3. Layout and Gaps</div>
+        <div class="paragraph">
+            <li>Use consistent margins, paddings, and gaps based on the grid.</li>
+        </div>
+        <div class="sub-heading">4. Use a 4px Sub-Grid (Optional)</div>
+        <div class="paragraph">
+            <li>For small adjustments and fine-tuning.</li>
+        </div>
+    </div>
+    <div>
+        <div class="heading">When to Follow These Rules</div>
+        <hr>
+        <div class="paragraph">
+            <li>When building<strong> scalable design systems</strong>.</li>
+            <li>When working on projects with multiple screen sizes (responsive designs).</li>
+            <li>When working with<strong> design teams</strong> for better handoff between design and development.</li>
+            <li>For improving accessibility and alignment in complex UIs.</li>
+        </div>
+    </div>
+    <div>
+        <div class="heading">Why Follow if Already Using Responsive Design?</div>
+        <hr>
+        <div class="paragraph">
+            <li><strong>Responsive design</strong>ensures content adapts to different screen sizes, but it doesn't guarantee consistent spacing and alignment.</li>
+            <li>The 8-point grid system ensures that all components, margins, and padding follow a logical pattern — leading to a more visually balanced and predictable UI.</li>
+        </div>
+    </div>
+    <div>
+        <div class="heading">Pros and Cons</div>
+        <hr>
+        <div class="sub-heading">Pros:</div>
+        <div class="paragraph">
+            <li>Consistent design and layout</li>
+            <li>Easier to scale and maintain</li>
+            <li>Works well across various screen resolutions</li>
+            <li>Faster development and design alignment</li>
+        </div>
+        <div class="sub-heading">Cons:</div>
+        <div class="paragraph">
+            <li>May feel restrictive for creative, custom designs</li>
+            <li>Small elements may not fit perfectly into an 8px grid</li>
+            <li>Sometimes overkill for very simple projects</li>
+        </div>
+    </div>
+    <div>
+        <div class="heading">In Which Type of Projects Is It Mandatory?</div>
+        <hr>
+        <div class="sub-heading">Ideal for:</div>
+        <div class="paragraph">
+            <li>Design systems (Material Design, Tailwind CSS, Bootstrap)</li>
+            <li>Large-scale applications (e-commerce, SaaS platforms)</li>
+            <li>Mobile-first designs</li>
+            <li>Cross-platform applications (React Native, Flutter)</li>
+            <li>Data-heavy dashboards</li>
+        </div>
+        <div class="sub-heading">Not Necessary for:</div>
+        <div class="paragraph">
+            <li>Simple landing pages</li>
+            <li>Small one-off projects</li>
+            <li>Artistic or creative websites</li>
+        </div>
+    </div>
+    <div>
+        <div class="heading">Why It Works Well?</div>
+        <hr>
+        <div class="paragraph">
+            <li>Modern display resolutions are divisible by 8 (1920px, 1440px, 1280px).</li>
+            <li>It's easier to maintain consistent visual balance with multiples of 8.</li>
+            <li>Helps designers and developers work from the same system — reduces misalignment and inconsistencies.</li>
+        </div>
+    </div>
+    <div>
+        <div class="heading">Best Practices:</div>
+        <hr>
+        <div class="paragraph">
+            <li>Start with an 8px base and adjust using a 4px subgrid if necessary.</li>
+            <li>Keep font sizes, padding, margins, and layout dimensions consistent.</li>
+            <li>Test across devices and resolutions to ensure alignment and consistency.</li>
+        </div>
+    </div>
+    <div>
+        <div class="heading">Summary:</div>
+        <hr>
+        <div class="paragraph">
+            The 8-point grid system ensures consistent, scalable, and predictable UI designs. It works well for complex, responsive projects but may not be needed for small, creative projects. Once implemented, it makes development faster and improves overall design harmony.
+        </div>
+    </div>
+</div>

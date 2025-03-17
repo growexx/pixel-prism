@@ -47,7 +47,7 @@ body {
     display: inline-block;
     white-space: nowrap;
     overflow: hidden;
-    font-size: 20px;
+    font-size: 24px;
     width: 0;
     animation: typing 10s steps(40) forwards, blink 0.7s step-end infinite;
 }
@@ -134,4 +134,66 @@ body {
     border: none;
     padding: 10px;
     outline: none;
+}
+
+.component-container {
+    height: 90%;
+    background: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    max-height: 718px;
+    overflow-y: auto;
+}
+
+.dark-mode .component-container {
+    background: black;
+}
+
+.dark-mode .chat-container {
+    background: black;
+}
+
+.heading {
+    padding: 12px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.sub-heading {
+    padding: 12px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.paragraph {
+    padding: 0 12px;
+    font-size: 15px;
+}
+
+hr {
+    border: none;
+    height: 2px;
+    background-color: #d8d4d48a;
+    margin-bottom: 12px;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #EEF1DA, #C7D9DD); /* Gradient from top to bottom */
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, #EEF1DA, #C7D9DD); /* Reverse gradient on hover */
 }

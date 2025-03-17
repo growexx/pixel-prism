@@ -7,6 +7,8 @@
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon.png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/styles/shCore.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/styles/shThemeMidnight.css">
     <link href="./assets/style/style.css" rel="stylesheet">
     <link href="./assets/style/sidebar.css" rel="stylesheet">
     <link href="./assets/style/headerFooter.css" rel="stylesheet">
@@ -18,12 +20,21 @@
     <div class="content">
         <div class="header" id="header" hx-get="./assets/components/common/header.html" hx-trigger="load"></div>
         <div style="flex: 1; padding: 20px;">
-            <div class="container" hx-get="./assets/components/chatVault.html" hx-trigger="load"></div>
+            <div class="container" id="chatVault" hx-get="./assets/components/chatVault.html" hx-trigger="load"></div>
+            <div class="container" id="eightPointGrid" hx-get="./assets/components/eightPointGrid.html" hx-trigger="load"></div>
         </div>
         <div class="footer" id="footer">&copy;&nbsp;<span id="year"></span>&nbsp;PIXEL PRISM</div>
     </div>
     <div id="setting" hx-get="./assets/components/common/setting.html" hx-trigger="load"></div>
     <script src="https://unpkg.com/htmx.org@1.9.6"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/scripts/shCore.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/scripts/shBrushJScript.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/scripts/shBrushXml.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/scripts/shBrushCss.js"></script>
     <script src="./assets/script/script.js"></script>
+    <script src="./assets/script/switching.js"></script>
+    <script>
+        SyntaxHighlighter.all();
+    </script>
 </body>
 </html>
