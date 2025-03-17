@@ -35,8 +35,8 @@ function toggleDarkMode() {
 
 function changeHeaderFooterColor() {
     const colors = [
-        {primary: '#A1887F', secondary: '#a1887fa8', primaryBtn: '#a1887f', secondaryBtn: '#b6a6a0d1'},
-        {primary: '#37474F', secondary: '#263238', primaryBtn: '#37474f', secondaryBtn: '#72838bad'},
+        {primary: '#A1887F', secondary: '#a1887fa8', primaryBtn: '#63514a', secondaryBtn: '#b6a6a0d1'},
+        {primary: '#37474F', secondary: '#263238', primaryBtn: '#192932', secondaryBtn: '#72838bad'},
         {primary: '#203562', secondary: '#3E588F', primaryBtn: '#4e5d74', secondaryBtn: '#7782a6'},
         {primary: '#5D5B6A', secondary: '#758184', primaryBtn: '#CFB495', secondaryBtn: '#F5CDAA'},
         {primary: '#80BCBD', secondary: '#AAD9BB', primaryBtn: '#D5F0C1', secondaryBtn: '#c3c19e'}
@@ -112,4 +112,35 @@ function validateForm(event) {
 
 function logout() {
     window.location.href = "index.html";
+}
+
+window.onload = function() {
+    const div = document.getElementsByClassName('chat-container card');
+    if(div) {
+        addMessage('What can I help with?','received');
+    }
+};
+
+function enterMsg (event) {
+    if (event.key === "Enter") {
+        sendMessage();
+    }
+}
+
+function sendMessage () {
+    const messageInput = document.getElementById('messageInput');
+    if (messageInput.value.trim() !== '') {
+        addMessage(messageInput.value, 'sent');
+        setTimeout(() => addMessage("This is a received message", 'received'), 1000); // Simulating response
+        messageInput.value = '';
+    }
+}
+
+function addMessage(text, type) {
+    const chatBox = document.getElementById('chatBox');
+    const messageDiv = document.createElement('div');
+    messageDiv.classList.add('message', type);
+    messageDiv.textContent = text;
+    chatBox.appendChild(messageDiv);
+    chatBox.scrollTop = chatBox.scrollHeight;
 }

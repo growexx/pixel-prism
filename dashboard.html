@@ -13,13 +13,15 @@
     <link href="./assets/style/person.css" rel="stylesheet">
 </head>
 <body>
-    <div class="sidebar" id="sidebar" hx-get="./assets/components/sidebar.html" hx-trigger="load"></div>
+    <div class="sidebar" id="sidebar" hx-get="./assets/components/common/sidebar.html" hx-trigger="load"></div>
     <div class="content">
-        <div class="header" id="header" hx-get="./assets/components/header.html" hx-trigger="load"></div>
-        <div style="flex: 1; padding: 20px;">Main Content</div>
+        <div class="header" id="header" hx-get="./assets/components/common/header.html" hx-trigger="load"></div>
+        <div style="flex: 1; padding: 20px;">
+            <div class="container" hx-get="./assets/components/chatVault.html" hx-trigger="load"></div>
+        </div>
         <div class="footer" id="footer">&copy;&nbsp;<span id="year"></span>&nbsp;PIXEL PRISM</div>
     </div>
-    <div id="setting" hx-get="./assets/components/setting.html" hx-trigger="load"></div>
+    <div id="setting" hx-get="./assets/components/common/setting.html" hx-trigger="load"></div>
     <script src="https://unpkg.com/htmx.org@1.9.6"></script>
     <script src="./assets/script/script.js"></script>
 </body>
