@@ -1,7 +1,8 @@
 let defaultComponent = localStorage.getItem('defaultComponent') || 'chatVault';
 const componentList = [
     'chatVault',
-    'eightPointGrid'
+    'eightPointGrid',
+    'modernCss'
 ];
 
 function setSelctedComponent() {

@@ -161,12 +161,17 @@ body {
     padding: 12px;
     font-size: 20px;
     font-weight: bold;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 .sub-heading {
     padding: 12px;
     font-size: 18px;
-    font-weight: 500;
+    font-weight: lighter;
+    letter-spacing: 1px;
 }
 
 .paragraph {
@@ -190,10 +195,23 @@ hr {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: linear-gradient(45deg, #EEF1DA, #C7D9DD); /* Gradient from top to bottom */
+    background: linear-gradient(45deg, #EEF1DA, #C7D9DD);
     border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(45deg, #EEF1DA, #C7D9DD); /* Reverse gradient on hover */
+    background: linear-gradient(45deg, #EEF1DA, #C7D9DD);
+}
+
+code {
+    background-color: #d2cfcf;
+    color: #333;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+}
+
+.ml-40 {
+    margin-left: 40px;
 }

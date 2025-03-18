@@ -1,0 +1,278 @@
+<div class="welcome-msg">
+    <span class="typing-text">CSS Modules NEW</span>
+</div>
+<div class="component-container">
+    <div>
+        <div class="heading">Modern CSS: A Deep Dive into Layout, Performance, and Enhanced Styling</div>
+        <hr>
+        <div class="paragraph">
+            CSS has evolved significantly beyond basic styling. Modern specifications introduce powerful layout systems, performance optimization techniques, and advanced color manipulation, enabling developers to create sophisticated and efficient web experiences. This document explores key modern CSS modules and features, providing in-depth explanations and practical examples.
+        </div>
+    </div>
+    <div>
+        <div class="heading">CSS Grid Layout (Grid Module): Two-Dimensional Power</div>
+        <hr>
+        <div class="sub-heading">Conceptual Foundation:</div>
+        <div class="paragraph">
+            <li>Grid layout divides a container into rows and columns, creating a two-dimensional grid system.</li>
+            <li>It empowers developers to precisely control the placement and sizing of elements within this grid.</li>
+        </div>
+        <div class="sub-heading">Key Properties:</div>
+        <div class="paragraph">
+            <li><code>display: grid;</code>: Establishes a grid formatting context.</li>
+            <li><code>grid-template-rows</code>, <code>grid-template-columns</code>: Defines the track sizes and number of rows and columns.
+                <ul class="ml-40">
+                    <li>Values can be fixed (e.g., <code>100px</code>), flexible (e.g., <code>1fr</code>), or auto-sized.</li>
+                    <li><code>repeat()</code> function simplifies repetitive track definitions.</li>
+                    <li>Example: <code>$grid-template-columns: repeat(3, 1fr);$</code></li>
+                </ul>
+            </li>
+            <li><code>grid-area</code>: Assigns an element to a specific grid area by specifying row and column lines.</li>
+            <li><code>grid-row</code>, <code>grid-column</code>: Shorthand properties for placing items.</li>
+            <li><code>gap</code>, <code>row-gap</code>, <code>column-gap</code>: Creates spacing between grid tracks.</li>
+            <li><code>fr</code>: unit (fractional unit): Distributes available space proportionally.
+                <ul class="ml-40">
+                    <li>Example: <code>$grid-template-columns: 1fr 2fr 1fr;$</code> (middle column takes twice the space of the others).</li>
+                </ul>
+            </li>
+            <li><code>grid-auto-rows</code>, <code>grid-auto-columns</code>: Defines the size of implicitly created grid tracks.</li>
+        </div>
+        <div class="sub-heading">Practical Applications:</div>
+        <div class="paragraph">
+            <li>Complex page layouts.</li>
+            <li>Responsive design patterns.</li>
+            <li>Creating consistent and maintainable layouts.</li>
+        </div>
+        <div class="sub-heading">Example:</div>
+        <div class="paragraph">
+            <h4>CSS</h4>
+            <pre class="brush: css">
+                .container {
+                    display: grid;
+                    grid-template-columns: 200px 1fr 200px;
+                    grid-template-rows: auto 1fr auto;
+                    gap: 10px;
+                }
+                .header {
+                    grid-area: 1 / 1 / 2 / 4; /* row start / column start / row end / column end */
+                    background-color: lightblue;
+                }
+                .main {
+                    grid-area: 2 / 2 / 3 / 3;
+                    background-color: lightgreen;
+                }
+                .footer {
+                    grid-area: 3 / 1 / 4 / 4;
+                    background-color: lightcoral;
+                }
+            </pre>
+        </div>
+    </div>
+    <div>
+        <div class="heading">CSS Flexbox (Flexible Box Layout Module): One-Dimensional Flexibility</div>
+        <hr>
+        <div class="sub-heading">Conceptual Foundation:</div>
+        <div class="paragraph">
+            <li>Flexbox arranges items along a single axis (either row or column).</li>
+            <li>It simplifies alignment and distribution of space within a container.</li>
+        </div>
+        <div class="sub-heading">Key Properties:</div>
+        <div class="paragraph">
+            <li><code>display: flex;</code>: Establishes a flex formatting context.</li>
+            <li><code>flex-direction</code>: Defines the main axis (row or column).</li>
+            <li><code>justify-content</code>: Aligns items along the main axis.
+                <ul class="ml-40">
+                    <li>Values: <code>flex-start</code>, <code>flex-end</code>, <code>center</code>, <code>space-between</code>, <code>space-around</code>, <code>space-evenly</code>.</li>
+                </ul>
+            </li>
+            <li><code>align-items</code>: Aligns items along the cross axis.
+                <ul class="ml-40">
+                    <li>Values: <code>flex-start</code>, <code>flex-end</code>, <code>center</code>, <code>baseline</code>, <code>stretch</code>.</li>
+                </ul>
+            </li>
+            <li><code>flex-wrap</code>: Controls whether items wrap onto multiple lines.</li>
+            <li><code>flex-grow</code>, <code>flex-shrink</code>, <code>flex-basis</code>: Determines how items grow, shrink, and their initial size.</li>
+            <li><code>align-self</code>: Overrides the <code>align-items</code> property for individual items.</li>
+        </div>
+        <div class="sub-heading">Practical Applications:</div>
+        <div class="paragraph">
+            <li>Navigation bars.</li>
+            <li>Component layouts.</li>
+            <li>Responsive design.</li>
+            <li>Centering elements.</li>
+        </div>
+        <div class="sub-heading">Example:</div>
+        <div class="paragraph">
+            <h4>CSS</h4>
+            <pre class="brush: css">
+                .flex-container {
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+                    flex-wrap: wrap;
+                }
+                .flex-item {
+                    flex-basis: 200px;
+                    background-color: lightyellow;
+                    padding: 20px;
+                    margin: 10px;
+                }
+            </pre>
+        </div>
+    </div>
+    <div>
+        <div class="heading">CSS Subgrid (Grid Layout Module Level 2): Nested Grid Inheritance</div>
+        <hr>
+        <div class="sub-heading">Conceptual Foundation:</div>
+        <div class="paragraph">
+            <li>Allows nested grids to inherit track definitions from their parent grid.</li>
+            <li>Enables consistent alignment across nested grid structures.</li>
+        </div>
+        <div class="sub-heading">Key Properties:</div>
+        <div class="paragraph">
+            <li><code>grid-template-rows: subgrid;</code>, <code>grid-template-columns: subgrid;</code></li>
+            <li>When used on a nested grid, it adopts the track definitions of its parent.</li>
+        </div>
+        <div class="sub-heading">Impact:</div>
+        <div class="paragraph">
+            <li>Simplifies complex nested layouts.</li>
+            <li>Maintains visual consistency.</li>
+        </div>
+        <div class="sub-heading">Example:</div>
+        <div class="paragraph">
+            <h4>CSS</h4>
+            <pre class="brush: css">
+                .parent-grid {
+                    display: grid;
+                    grid-template-columns: 1fr 2fr 1fr;
+                }
+                .child-grid {
+                    display: grid;
+                    grid-template-columns: subgrid;
+                }
+            </pre>
+        </div>
+    </div>
+    <div>
+        <div class="heading">CSS Containment Module: Performance Optimization</div>
+        <hr>
+        <div class="sub-heading">Conceptual Foundation:</div>
+        <div class="paragraph">
+            <li>Isolates parts of the DOM tree to limit the scope of style recalculations and repaints.</li>
+            <li>Improves rendering performance.</li>
+        </div>
+        <div class="sub-heading">Key Properties:</div>
+        <div class="paragraph">
+            <li><code>contain: none;</code>: No containment.</li>
+            <li><code>contain: strict;</code>: Applies all containment types.</li>
+            <li><code>contain: content;</code>: Contains layout and paint.</li>
+            <li><code>contain: layout;</code>: Contains layout calculations..</li>
+            <li><code>contain: style;</code>: Contains style recalculations..</li>
+            <li><code>contain: paint;</code>: Contains repaint operations.</li>
+        </div>
+        <div class="sub-heading">Impact:</div>
+        <div class="paragraph">
+            <li>Reduces rendering overhead.</li>
+            <li>Enhances page performance.</li>
+        </div>
+    </div>
+    <div>
+        <div class="heading">CSS Logical Properties and Values: Writing Mode Independence</div>
+        <hr>
+        <div class="sub-heading">Conceptual Foundation:</div>
+        <div class="paragraph">
+            <li>Provides layout properties that are relative to the writing mode, not physical directions.</li>
+            <li>Supports internationalization and accessibility.</li>
+        </div>
+        <div class="sub-heading">Key Properties:</div>
+        <div class="paragraph">
+            <li><code>inline-start</code>, <code>inline-end</code>, <code>block-start</code>, <code>block-end</code>.</li>
+            <li><code>margin-inline-start</code>, <code>padding-block-end</code>, etc.</li>
+        </div>
+        <div class="sub-heading">Impact:</div>
+        <div class="paragraph">
+            <li>Simplified layout for right-to-left and vertical writing modes.</li>
+            <li>Improved accessibility.</li>
+        </div>
+    </div>
+    <div>
+        <div class="heading">CSS Color Functions and Color Spaces: Enhanced Color Control</div>
+        <hr>
+        <div class="sub-heading">Conceptual Foundation:</div>
+        <div class="paragraph">
+            <li>Expands color capabilities beyond basic RGB and hexadecimal values.</li>
+            <li>Introduces new color functions and color spaces.</li>
+        </div>
+        <div class="sub-heading">Key Properties:</div>
+        <div class="paragraph">
+            <li><code>color()</code> function: Enables use of different color spaces (e.g., <code>lch</code>, <code>lab</code>, <code>display-p3</code>).</li>
+            <li><code>hwb()</code> function: Hue, Whiteness, Blackness.</li>
+            <li><code>oklab()</code>, <code>oklch()</code>: Perceptually uniform color spaces</li>
+            <li><code>color-mix()</code>: mixing colors.</li>
+        </div>
+        <div class="sub-heading">Impact:</div>
+        <div class="paragraph">
+            <li>Wider color gamuts.</li>
+            <li>Improved color accuracy.</li>
+            <li>More control over color manipulation.</li>
+        </div>
+    </div>
+    <div>
+        <div class="heading">CSS Cascade Layers (Cascade Level 5): Cascade Management</div>
+        <hr>
+        <div class="sub-heading">Conceptual Foundation:</div>
+        <div class="paragraph">
+            <li>Provides control over the cascade order.</li>
+            <li>Organizes and prioritizes CSS rules.</li>
+        </div>
+        <div class="sub-heading">Key Properties:</div>
+        <div class="paragraph">
+            <li><code>@layer</code>: Creates cascade layers.</li>
+        </div>
+        <div class="sub-heading">Impact:</div>
+        <div class="paragraph">
+            <li>Simplified management of complex stylesheets.</li>
+            <li>Reduced specificity conflicts.</li>
+        </div>
+        <div class="sub-heading">Example:</div>
+        <div class="paragraph">
+            <h4>CSS</h4>
+            <pre class="brush: css">
+                @layer base, theme, overrides;
+
+                @layer base {
+                    body { color: black; }
+                }
+
+                @layer theme {
+                    body { color: blue; }
+                }
+
+                @layer overrides {
+                    body { color: red; }
+                }
+            </pre>
+        </div>
+    </div>
+    <div>
+        <div class="heading">CSS Container Queries (Container Queries Module Level 1): Component-Based Responsiveness</div>
+        <hr>
+        <div class="sub-heading">Conceptual Foundation:</div>
+        <div class="paragraph">
+            <li>Applies styles based on the size of a parent container, not the viewport.</li>
+            <li>Enables component-based responsive design.</li>
+        </div>
+        <div class="sub-heading">Key Properties:</div>
+        <div class="paragraph">
+            <li><code>@container</code>: Creates container queries.</li>
+            <li><code>container-type</code>: Defines whether the container is inline or block.</li>
+            <li><code>container-name</code>: Assigns a name to the container.</li>
+        </div>
+        <div class="sub-heading">Impact:</div>
+        <div class="paragraph">
+            <li>Improved component reusability.</li>
+            <li>More granular control over responsiveness.</li>
+        </div>
+    </div>
+    <div class="sub-heading">This detailed document provides a comprehensive overview of modern CSS features.</div>
+</div>
