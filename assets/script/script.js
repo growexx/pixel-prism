@@ -1,4 +1,30 @@
-let darkMode = false;
+let defaultSetup = {
+    component: 'chatVault',
+    darkMode: false,
+    color: {
+        primary: '#8a94d6',
+        secondary: '#b3dce6',
+        primaryBtn: '#3d488f',
+        secondaryBtn: '#85d2e4'
+    }
+};
+
+window.onload = function() {
+    if(!localStorage.getItem('defaultSetup')) {
+        localStorage.setItem('defaultSetup', JSON.stringify(defaultSetup));
+    }
+    defaultSetup = JSON.parse(localStorage.getItem('defaultSetup'));
+    updateColor(defaultSetup.color);
+    if(defaultSetup.darkMode) {
+        document.body.classList.toggle('dark-mode', defaultSetup.darkMode);
+    }
+    setSelctedComponent(defaultSetup.component);
+
+    const chatContainer = document.getElementsByClassName('chat-container card');
+    if(chatContainer) {
+        addMessage('What can I help with?','received');
+    }
+};
 document.getElementById("year").textContent = new Date().getFullYear();
 setTimeout(stopMouthAnimation, 7000);
 
@@ -29,8 +55,9 @@ function toggleSetting() {
 }
 
 function toggleDarkMode() {
-    darkMode = !darkMode;
-    document.body.classList.toggle('dark-mode', darkMode);
+    defaultSetup.darkMode = !defaultSetup.darkMode;
+    document.body.classList.toggle('dark-mode', defaultSetup.darkMode);
+    localStorage.setItem('defaultSetup', JSON.stringify(defaultSetup));
 }
 
 function changeHeaderFooterColor() {
@@ -41,21 +68,26 @@ function changeHeaderFooterColor() {
         {primary: '#5D5B6A', secondary: '#758184', primaryBtn: '#CFB495', secondaryBtn: '#F5CDAA'},
         {primary: '#80BCBD', secondary: '#AAD9BB', primaryBtn: '#D5F0C1', secondaryBtn: '#c3c19e'}
     ];
-    let newTheme = colors[Math.floor(Math.random() * colors.length)];
-    document.documentElement.style.setProperty('--primary-color', newTheme.primary);
-    document.documentElement.style.setProperty('--secondary-color', newTheme.secondary);
-    document.documentElement.style.setProperty('--primary-button-color', newTheme.primaryBtn);
-    document.documentElement.style.setProperty('--secondary-button-color', newTheme.secondaryBtn);
+    let newThemeColor = colors[Math.floor(Math.random() * colors.length)];
+    updateColor(newThemeColor);
+    defaultSetup.color = newThemeColor;
+    localStorage.setItem('defaultSetup', JSON.stringify(defaultSetup));
 }
 
 function defaultTheme() {
-    const defaultTheme = {primary: '#8a94d6', secondary: '#b3dce6', primaryBtn: '#3d488f', secondaryBtn: '#85d2e4'};
-    document.documentElement.style.setProperty('--primary-color', defaultTheme.primary);
-    document.documentElement.style.setProperty('--secondary-color', defaultTheme.secondary);
-    document.documentElement.style.setProperty('--primary-button-color', defaultTheme.primaryBtn);
-    document.documentElement.style.setProperty('--secondary-button-color', defaultTheme.secondaryBtn);
-    darkMode = false;
-    document.body.classList.toggle('dark-mode', darkMode);
+    const defaultThemeColor = {primary: '#8a94d6', secondary: '#b3dce6', primaryBtn: '#3d488f', secondaryBtn: '#85d2e4'};
+    updateColor(defaultThemeColor);
+    defaultSetup.darkMode = false;
+    document.body.classList.toggle('dark-mode', defaultSetup.darkMode);
+    defaultSetup.color = defaultThemeColor;
+    localStorage.setItem('defaultSetup', JSON.stringify(defaultSetup));
+}
+
+function updateColor(color) {
+    document.documentElement.style.setProperty('--primary-color', color.primary);
+    document.documentElement.style.setProperty('--secondary-color', color.secondary);
+    document.documentElement.style.setProperty('--primary-button-color', color.primaryBtn);
+    document.documentElement.style.setProperty('--secondary-button-color', color.secondaryBtn);
 }
 
 function toggleSubmenu(element) {
@@ -113,17 +145,6 @@ function validateForm(event) {
 function logout() {
     window.location.href = "index.html";
 }
-
-window.onload = function() {
-    if(!localStorage.getItem('defaultComponent')) {
-        localStorage.setItem('defaultComponent', 'chatVault');
-    }
-    setSelctedComponent();
-    const chatContainer = document.getElementsByClassName('chat-container card');
-    if(chatContainer) {
-        addMessage('What can I help with?','received');
-    }
-};
 
 function enterMsg (event) {
     if (event.key === "Enter") {

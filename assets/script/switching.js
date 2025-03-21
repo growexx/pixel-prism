@@ -1,13 +1,14 @@
-let defaultComponent = localStorage.getItem('defaultComponent') || 'chatVault';
 const componentList = [
     'chatVault',
     'eightPointGrid',
-    'modernCss'
+    'modernCss',
+    'sassSetup',
+    'sassfeatures'
 ];
 
-function setSelctedComponent() {
+function setSelctedComponent(component) {
     componentList.forEach(function(element, index, array) {
-        if(element === defaultComponent) {
+        if(element === component) {
             document.getElementById(element).style.display = 'block';
         } else {
             document.getElementById(element).style.display = 'none';
@@ -16,7 +17,7 @@ function setSelctedComponent() {
 }
 
 function updateDefaultComponent(component) {
-    localStorage.setItem('defaultComponent', component);
-    defaultComponent = localStorage.getItem('defaultComponent');
-    setSelctedComponent();
+    defaultSetup.component = component;
+    localStorage.setItem('defaultSetup', JSON.stringify(defaultSetup));
+    setSelctedComponent(component);
 }
