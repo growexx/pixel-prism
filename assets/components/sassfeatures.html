@@ -1,4 +1,192 @@
 <div class="welcome-msg">
-    <span class="typing-text">SCSS Features</span>
+    <span class="typing-text">SCSS (Sassy CSS)- All Features</span>
 </div>
-<div class="component-container"></div>
+<div class="component-container">
+    <div>
+        <div class="heading">Variables in SCSS</div>
+        <hr>
+        <div class="paragraph">
+            <li>Variables allow storing values (like colors, fonts, and spacing) for reuse.</li>
+            <li>Helps maintain consistency and makes updates easier.</li>
+            <pre class="brush: sass">
+                $primary-color: #3498db;
+                $font-size: 16px;
+                body {
+                    background-color: $primary-color;
+                    font-size: $font-size;
+                }
+            </pre>
+        </div>
+    </div>
+    <div>
+        <div class="heading">Nesting in SCSS</div>
+        <hr>
+        <div class="paragraph">
+            <li>Helps maintain a cleaner structure by nesting selectors within parent selectors.</li>
+            <li>Eliminates redundancy in selector names and improves readability.</li>
+            <pre class="brush: sass">
+                nav {
+                    ul {
+                        li {
+                            a {
+                                color: blue;
+                                text-decoration: none;
+                            }
+                        }
+                    }
+                }
+            </pre>
+        </div>
+    </div>
+    <div>
+        <div class="heading">Mixins in SCSS</div>
+        <hr>
+        <div class="paragraph">
+            <li>Mixins allow reusable blocks of styles, reducing duplication.</li>
+            <li>Can accept parameters to create dynamic styles.</li>
+            <pre class="brush: sass">
+                @mixin border-radius($radius) {
+                    border-radius: $radius;
+                }
+                button {
+                    @include border-radius(5px);
+                }
+            </pre>
+        </div>
+    </div>
+    <div>
+        <div class="heading">Extend/Inheritance</div>
+        <hr>
+        <div class="paragraph">
+            <li>Helps avoid code duplication by allowing styles to inherit from others.</li>
+            <li>Use <code>%placeholder</code> to define reusable styles.</li>
+            <pre class="brush: sass">
+                %btn-base {
+                    padding: 10px;
+                    border: none;
+                }
+                .primary-btn {
+                    @extend %btn-base;
+                    background-color: blue;
+                }
+                .secondary-btn {
+                    @extend %btn-base;
+                    background-color: gray;
+                }
+            </pre>
+        </div>
+    </div>
+    <div>
+        <div class="heading">Operators in SCSS</div>
+        <hr>
+        <div class="paragraph">
+            <li>SCSS allows mathematical operations like addition, subtraction, multiplication, and division.</li>
+            <pre class="brush: sass">
+                .container {
+                    width: 100% - 20px;
+                    padding: 10px * 2;
+                }
+            </pre>
+        </div>
+    </div>
+    <div>
+        <div class="heading">Partials and Import</div>
+        <hr>
+        <div class="paragraph">
+            <li>SCSS allows splitting code into smaller files called partials.</li>
+            <li>Partials start with an underscore <code>(_variables.scss)</code>.</li>
+            <li>Import them into a main file using <code>@import</code>.</li>
+            <pre class="brush: sass">
+                @import 'variables';
+                @import 'mixins';
+            </pre>
+        </div>
+    </div>
+    <div>
+        <div class="heading">Functions in SCSS</div>
+        <hr>
+        <div class="paragraph">
+            <li>Custom functions process values dynamically.</li>
+            <li>Useful for calculations and reusable logic.</li>
+            <pre class="brush: sass">
+                @function double($size) {
+                    @return $size * 2;
+                }
+                div {
+                    width: double(10px);
+                }
+            </pre>
+        </div>
+    </div>
+    <div>
+        <div class="heading">Loops in SCSS</div>
+        <hr>
+        <div class="paragraph">
+            <li>Iterate over lists/maps to generate styles dynamically.</li>
+            <pre class="brush: sass">
+                @for $i from 1 through 3 {
+                    .item-#{$i} {
+                        width: $i * 10px;
+                    }
+                }
+            </pre>
+        </div>
+    </div>
+    <div>
+        <div class="heading">If/Else Conditions</div>
+        <hr>
+        <div class="paragraph">
+            <li>SCSS allows adding logic to styles based on conditions.</li>
+            <pre class="brush: sass">
+                $theme: dark;
+                @if $theme == dark {
+                    body {
+                        background-color: black;
+                    }
+                } @else {
+                    body {
+                        background-color: white;
+                    }
+                }
+            </pre>
+        </div>
+    </div>
+    <div>
+        <div class="heading">Maps in SCSS</div>
+        <hr>
+        <div class="paragraph">
+            <li>SCSS maps store key-value pairs for structured data.</li>
+            <li>Use <code>map-get()</code> to retrieve values dynamically.</li>
+            <pre class="brush: sass">
+                $colors: (primary: blue, secondary: red);
+                button {
+                    color: map-get($colors, primary);
+                }
+            </pre>
+        </div>
+    </div>
+    <div>
+        <div class="heading">Interpolation</div>
+        <hr>
+        <div class="paragraph">
+            <li>Dynamically insert variable values into selectors, properties, or values.</li>
+            <pre class="brush: sass">
+                $size: large;
+                .button-#{$size} {
+                    font-size: 20px;
+                }
+            </pre>
+        </div>
+    </div>
+    <div>
+        <div class="heading">Error Handling</div>
+        <hr>
+        <div class="paragraph">
+            <li>Helps debug SCSS with warnings and errors.</li>
+            <pre class="brush: sass">
+                @warn "This is a warning";
+                @error "This is an error";
+            </pre>
+        </div>
+    </div>
+</div>

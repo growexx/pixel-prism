@@ -1,4 +1,190 @@
 <div class="welcome-msg">
-    <span class="typing-text">SCSS Setup</span>
+    <span class="typing-text">SCSS (Sassy CSS)- Introduction & Setup</span>
 </div>
-<div class="component-container"></div>
+<div class="component-container">
+    <div>
+        <div class="heading">Introduction to SCSS</div>
+        <hr>
+        <div class="paragraph">
+            <li>SCSS (Sassy CSS) is a preprocessor scripting language that compiles into CSS.</li>
+            <li>It extends CSS with variables, nested rules, mixins, and more.</li>
+            <li>SCSS allows developers to write cleaner, more maintainable, and scalable CSS.</li>
+        </div>
+    </div>
+    <div>
+        <div class="heading">What Are CSS, SASS, and SCSS?</div>
+        <hr>
+        <div class="paragraph">
+            <li><strong>CSS (Cascading Style Sheets)</strong>: The standard language for styling web pages.</li>
+            <li><strong>SASS (Syntactically Awesome Stylesheets)</strong>: A CSS preprocessor with additional features to improve styling efficiency.</li>
+            <li><strong>SCSS (Sassy CSS)</strong>: A syntax of SASS that is more similar to standard CSS but still includes advanced SASS features.</li>
+        </div>
+    </div>
+    <div>
+        <div class="heading">Differences Between CSS, SASS, and SCSS</div>
+        <hr>
+        <div class="paragraph">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>CSS</th>
+                        <th>SASS</th>
+                        <th>SCSS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Syntax</td>
+                        <td>Standard CSS</td>
+                        <td>Indentation-based</td>
+                        <td>CSS-like with enhancements</td>
+                    </tr>
+                    <tr>
+                        <td>Variables</td>
+                        <td>Not available</td>
+                        <td>Available</td>
+                        <td>Available</td>
+                    </tr>
+                    <tr>
+                        <td>Nesting</td>
+                        <td>Not available</td>
+                        <td>Available</td>
+                        <td>Available</td>
+                    </tr>
+                    <tr>
+                        <td>Mixins</td>
+                        <td>Not available</td>
+                        <td>Available</td>
+                        <td>Available</td>
+                    </tr>
+                    <tr>
+                        <td>Partials & Import</td>
+                        <td>Not available</td>
+                        <td>Available</td>
+                        <td>Available</td>
+                    </tr>
+                    <tr>
+                        <td>Operators</td>
+                        <td>Not available</td>
+                        <td>Available</td>
+                        <td>Available</td>
+                    </tr>
+                    <tr>
+                        <td>Functions</td>
+                        <td>Not available</td>
+                        <td>Available</td>
+                        <td>Available</td>
+                    </tr>
+                    <tr>
+                        <td>Compilation</td>
+                        <td>Not required</td>
+                        <td>Required</td>
+                        <td>Required</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div>
+        <div class="heading">Why Use SCSS?</div>
+        <hr>
+        <div class="paragraph">
+            <li>Enhances CSS with programming-like capabilities such as variables and functions.</li>
+            <li>Reduces repetition, making stylesheets easier to read and maintain.</li>
+            <li>Provides structure and organization, especially for large projects.</li>
+            <li>Supports advanced features like loops, conditionals, and modularization.</li>
+        </div>
+    </div>
+    <div>
+        <div class="heading">SCSS vs. CSS</div>
+        <hr>
+        <div class="paragraph">
+            <li>SCSS is a superset of CSS, meaning all valid CSS is valid SCSS.</li>
+            <li>SCSS introduces features such as nesting, mixins, variables, and functions.</li>
+            <li>Reduces redundant code by allowing developers to reuse styles effectively.</li>
+            <li>Provides better maintainability by breaking styles into manageable components.</li>
+        </div>
+    </div>
+    <div>
+        <div class="heading">Installing SCSS</div>
+        <hr>
+        <div class="paragraph">
+            <li>SCSS needs to be compiled into CSS before being used in a web project.</li>
+            <li>Install via npm: <code>npm install -g sass</code></li>
+            <li>Compile SCSS to CSS using the command: <code>sass input.scss output.css</code></li>
+            <li>Many build tools (Webpack, Gulp, Grunt) support SCSS compilation.</li>
+        </div>
+    </div>
+    <div>
+        <div class="heading">How to Use SCSS in Plain JavaScript?</div>
+        <hr>
+        <div class="sub-heading">Manually Compiling SCSS to CSS and Linking It</div>
+        <div class="paragraph">
+            <li>Use the command:</li>
+            <pre class="brush: html">
+                sass styles.scss styles.css
+            </pre>
+            <li>Link the generated CSS file in your HTML:</li>
+            <pre class="brush: html">
+                <link rel="stylesheet" href="styles.css">
+            </pre>
+        </div>
+        <div class="sub-heading">Loading CSS Dynamically with JavaScript</div>
+        <div class="paragraph">
+            <li>After compiling SCSS to CSS, use JavaScript to load the CSS file dynamically:</li>
+            <pre class="brush: html">
+                const link = document.createElement("link");
+                link.rel = "stylesheet";
+                link.href = "styles.css";
+                document.head.appendChild(link);
+            </pre>
+        </div>
+        <div class="sub-heading">Using SCSS in JavaScript Frameworks</div>
+        <div class="paragraph">
+            <li>In React, Vue, or Angular, SCSS can be directly imported when using Webpack:</li>
+            <pre class="brush: html">
+                import "./styles.scss";
+            </pre>
+        </div>
+    </div>
+
+    <div>
+        <div class="heading">SCSS Compilers & Tools</div>
+        <hr>
+        <div class="paragraph">
+            <li>SCSS requires compilers to convert <code>.scss</code> files to <code>.css</code>.</li>
+            <li>Popular SCSS compilers: Dart Sass, Node Sass, LibSass.</li>
+            <li>Integration with Webpack, Gulp, and other build tools.</li>
+        </div>
+    </div>
+    <div>
+        <div class="heading">Best Practices</div>
+        <hr>
+        <div class="paragraph">
+            <li>Use meaningful variable names for maintainability.</li>
+            <li>Keep nesting shallow to avoid overly specific selectors.</li>
+            <li>Use mixins and functions for reusability.</li>
+            <li>Split styles into modular files using partials.</li>
+        </div>
+    </div>
+    <div>
+        <div class="heading">SCSS in Modern Web Development</div>
+        <hr>
+        <div class="paragraph">
+            <li>SCSS is widely used in modern frameworks like Bootstrap.</li>
+            <li>Essential for maintaining scalable and maintainable CSS.</li>
+            <li>Supports component-based architecture in React, Angular, and Vue.</li>
+        </div>
+    </div>
+    <div>
+        <div class="heading">Conclusion</div>
+        <hr>
+        <div class="paragraph">
+            <li>SCSS makes CSS more powerful and manageable.</li>
+            <li>Improves productivity and code organization.</li>
+            <li>Encouraged for large-scale projects.</li>
+            <li>Learning SCSS will make styling more efficient and enjoyable.</li>
+        </div>
+    </div>
+</div>

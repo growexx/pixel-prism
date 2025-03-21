@@ -215,3 +215,21 @@ code {
 .ml-40 {
     margin-left: 40px;
 }
+
+.syntaxhighlighter {
+    padding: 16px !important;
+}
+
+table {
+    width: 100%;
+    text-align: center;
+    color: white;
+}
+
+th {
+    background: var(--primary-color);
+}
+
+td {
+    background: var(--secondary-color);
+}
