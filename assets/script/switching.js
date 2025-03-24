@@ -1,5 +1,6 @@
 const componentList = [
     'chatVault',
+    'playground',
     'eightPointGrid',
     'modernCss',
     'sassSetup',

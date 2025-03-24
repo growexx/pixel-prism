@@ -169,3 +169,24 @@ function addMessage(text, type) {
     chatBox.appendChild(messageDiv);
     chatBox.scrollTop = chatBox.scrollHeight;
 }
+
+function runCode() {
+    const html = document.getElementById('html').value;
+    const css = document.getElementById('css').value;
+    const scss = document.getElementById('scss').value;
+    Sass.compile(scss, function(result) {
+        const combinedCss = css + '\n' + result.text;
+        const iframe = document.getElementById('output').contentWindow.document;
+        iframe.open();
+        iframe.write(`<!DOCTYPE html>
+        <html>
+        <head>
+            <style>${combinedCss}</style>
+        </head>
+        <body>
+            ${html}
+        </body>
+        </html>`);
+        iframe.close();
+    });
+}

@@ -1,0 +1,29 @@
+<div class="welcome-msg">
+    <span class="typing-text">CSS/SCSS Code Editor</span>
+</div>
+<div class="component-container">
+    <div class="row">
+        <div class="row-container">
+            <div class="sub-heading">HTML</div>
+            <textarea class="editor-textarea" id="html" placeholder="Write your HTML here...">&lt;h1&gt;Hello, SCSS!&lt;/h1&gt;</textarea>
+        </div>
+        <div class="row-container">
+            <div class="sub-heading">CSS</div>
+            <textarea class="editor-textarea" id="css" placeholder="Write your CSS here...">body { text-align: center; }</textarea>
+        </div>
+        <div class="row-container">
+            <div class="sub-heading">SCSS</div>
+            <textarea class="editor-textarea" id="scss" placeholder="Write your SCSS here...">
+$primary-color: blue;
+h1 {
+    color: $primary-color;
+    font-size: 24px;
+}
+            </textarea>
+        </div>
+    </div>
+    <button class="run-code-btn" onclick="runCode()">
+        <span class="material-icons">double_arrow</span>
+    </button>
+    <iframe id="output"></iframe>
+</div>
