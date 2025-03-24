@@ -152,13 +152,28 @@ function enterMsg (event) {
     }
 }
 
-function sendMessage () {
+async function sendMessage () {
     const messageInput = document.getElementById('messageInput');
     if (messageInput.value.trim() !== '') {
         addMessage(messageInput.value, 'sent');
-        setTimeout(() => addMessage("This is a received message", 'received'), 1000); // Simulating response
         messageInput.value = '';
+        const response = await getAIResponse(messageInput.value);
+        addMessage(response, 'received');
     }
+}
+
+async function getAIResponse(message) {
+    const apiKey = '';
+    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            contents: [{ parts: [{ text: message }] }]
+        })
+    });
+
+    const data = await response.json();
+    return data.candidates?.[0]?.content?.parts?.[0]?.text || "No response";
 }
 
 function addMessage(text, type) {
